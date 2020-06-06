@@ -1,40 +1,33 @@
 " ==================================================
-" Welcome to Sourav Rakshit's vimrc file (CRLF)(DOS)
+" Welcome to Sourav Rakshit's vimrc file (LF)(LINUX)
 " ==================================================
+
+" ========= PREREQUESTICS =========
+" Vundle installed in ~/.vim/bundle/
+" ==================================
+
+
 set nocompatible  "be iMproved, required
 set exrc
 
-" ========= PREREQUESTICS =========
-" Vundle installed in $HOME/.vim/bundle/
-" ==================================
-
 set encoding=UTF-8
 
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-
-" if has('win32')
- "     if !empty($SHELL)
-"        set shell=cmd.exe shellcmdflag=/c shellredir=>%s\ 2>&1
-"        set shellxquote=( shellxescape&vim shellquote=
-"    endif
-" endif
-
-
-call vundle#begin('$HOME/.vim/bundle/')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " ==== PLUGINS ====
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/L9'
 Plugin 'tpope/vim-fugitive'
-Plugin 'rstacruz/sparkup', {'rtp':'vim'}
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'joshdick/onedark.vim'
 " Plugin 'ycm-core/YouCompleteMe'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-conflicted'
 Plugin 'jacoborus/tender.vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -71,19 +64,20 @@ filetype plugin indent on
 
 " ====== TEMPLATE SETTINGS =======
 :autocmd BufNewFile *.sm.cpp 0r $HOME/.vim/templates/CPP/skeleton.sm.cpp
-:autocmd BufNewFile *.full.cpp 0r $HOME/.vim/templates/CPP/skeleton.full.cpp
+:autocmd BufNewFile *.cpp 0r $HOME/.vim/templates/CPP/skeleton.cpp
 :autocmd BufNewFile *.perf.cpp 0r $HOME/.vim/templates/CPP/skeleton.perf.cpp
-:autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && %:r <CR>
-:autocmd filetype cpp nnoremap <F6> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && %:r.exe < in <CR>
+:autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11 -DLOCAL   -O2   % -o %:r && %:r <CR>
+:autocmd filetype cpp nnoremap <F6> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11 -DLOCAL   -O2   % -o %:r && %:r.exe < in <CR>
+" ===== TEMPLATE SETTINGS END =====
 
 " ==== FONT SETTINGS ====
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    set guifont=Consolas\ 12
   elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
+    set guifont=Menlo\ Regular:h12
   elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
+    set guifont=Cascadia\ Code:h9:cANSI
   endif
 endif
 
@@ -101,29 +95,30 @@ nnoremap "ss "*p
 " ==== GENERAL SETTINGS =====
 
 set fillchars+=vert:\|
-colorscheme molokai
 syntax on
-set background=dark
+" set background=dark
 set ruler
+" colo default
 set mouse=a " set the value to c to disable
 set relativenumber
 set hidden
 set number
 set laststatus=2
+set nowrap
 set smartindent
 set st=4 sw=4 et
 set shiftwidth=4
 set backspace=indent,eol,start
 set tabstop=4
 let g:vim_json_syntax_conceal = 0
-set colorcolumn=80
+" set colorcolumn=80
 set laststatus=2
 set autoread
-set statusline=Welcome!
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-:set guioptions-=L  "remove left-hand scroll bar
+set statusline=WelcomeToVim!
+" :set guioptions-=m  "remove menu bar
+" :set guioptions-=T  "remove toolbar
+" :set guioptions-=r  "remove right-hand scroll bar
+" :set guioptions-=L  "remove left-hand scroll bar
 :set lines=999 columns=999
 
 
@@ -131,10 +126,11 @@ set statusline=Welcome!
 " ==== GENERAL SETTINGS END =====
 
 " ====== LIGHTLINE SETTINGS =========
-" let g:lightline = { 'colorscheme': 'solarized dark' }
+let g:lightline = { 'colorscheme': 'default' }
 
 
 " ========= LIGHTLINE SETTINGS END =========
+
 
 " ==== NERDTREE
 let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
