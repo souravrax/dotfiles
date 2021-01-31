@@ -8,9 +8,17 @@ case $- in
       *) return;;
 esac
 
+bind 'set bell-style none'
+
 export PATH=/home/sourav/.local/bin:$PATH
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 export BROWSER="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+
+# Aliases that are used very frequently
+alias notepad=notepad.exe
+alias gvim=gvim.exe
+alias explorer=explorer.exe
+alias chrome=chrome.exe
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -125,3 +133,4 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GDK_SCALE=1

@@ -6,7 +6,7 @@
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
     // If enabled, selections are automatically copied to your clipboard.
@@ -17,13 +17,19 @@
     // Each one of them will appear in the 'New Tab' dropdown,
     //   and can be invoked from the commandline with `wt.exe -p xxx`
     // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
+    // "initialRows": 22,
+    // "initialCols": 145,
+    // "initialPosition": "0,0", // x, y
     "profiles": {
         "defaults": {
             // Put settings here that you want to apply to all profiles.
             "acrylicOpacity": 0.7,
             "useAcrylic": true,
+            "snapOnInput": true,
             "fontFace": "CaskaydiaCove Nerd Font",
-            "startingDirectory": null // To open windows terminal in current directory
+            "startingDirectory": null, // To open windows terminal in current directory
+            "padding": "0 0 0 0",
+            "fontSize": 9
         },
         "list": [
             {
@@ -34,7 +40,7 @@
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "name": "Command Prompt",
+                "name": "CMD",
                 "commandline": "cmd.exe",
                 "colorScheme": "FishTank",
                 "hidden": false,
@@ -44,24 +50,15 @@
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "name": "PowerShell",
                 "hidden": false,
-                "source": "Windows.Terminal.PowershellCore"
+                "fontFace": "DejaVuSansMono NF",
+                "fontWeight": "semi-bold",
+                "source": "Windows.Terminal.PowershellCore",
+                "scrollbarState": "hidden"
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl",
-                "icon": "%USERPROFILE%/OneDrive/icons/ubuntu_orange.png",
-                // "colorScheme": "Royal",
-                "backgroundImage": "%USERPROFILE%/OneDrive/icons/ubuntu_orange.png",
-                "backgroundImageStretchMode": "none",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageOpacity": 0.8
-            },
-            {
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "name": "Ubuntu-20.04",
-                "hidden": false,
                 "source": "Windows.Terminal.Wsl",
                 "icon": "%USERPROFILE%/OneDrive/icons/ubuntu_orange.png",
                 // "colorScheme": "Royal",
@@ -93,16 +90,17 @@
                 "backgroundImageOpacity": 0.8
             },
             {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "guid": "{8aa6a6c1-320b-1e4d-9632-3abe1a27d992}",
+                "name": "Cygwin",
                 "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
+                "commandline": "C:/cygwin/Cygwin.bat",
+                "icon": "C:/cygwin/Cygwin.ico"
             },
             {
-                "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
-                "hidden": false,
-                "name": "kali-linux",
-                "source": "Windows.Terminal.Wsl"
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": true,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
             }
         ]
     },
@@ -201,17 +199,17 @@
         // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
         // These two lines additionally bind them to Ctrl+C and Ctrl+V.
         // To learn more about selection, visit https://aka.ms/terminal-selection
-        {
-            "command": {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
+        // {
+        //     "command": {
+        //         "action": "copy",
+        //         "singleLine": false
+        //     },
+        //     "keys": "ctrl+c"
+        // },
+        // {
+        //     "command": "paste",
+        //     "keys": "ctrl+v"
+        // },
         // Press Ctrl+Shift+F to open the search box
         {
             "command": "find",
@@ -233,9 +231,9 @@
             "command": {
                 "action": "splitPane",
                 "split": "auto",
-                "profile": "PowerShell"
+                "profile": "Ubuntu"
             },
-            "keys": "alt+shift+p"
+            "keys": "ctrl+shift+u"
         }
     ]
 }
