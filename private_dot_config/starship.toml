@@ -1,0 +1,95 @@
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$rust\
+$golang\
+$python\
+$docker_context\
+$kubernetes\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+palette = "catppuccin_mocha"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+surface1 = "#45475a"
+
+[directory]
+style = "bold blue"
+truncate_to_repo = false
+truncation_length = 4
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[git_branch]
+symbol = " "
+style = "bold mauve"
+
+[git_status]
+style = "bold yellow"
+
+[nodejs]
+symbol = " "
+style = "bold green"
+
+[rust]
+symbol = " "
+style = "bold peach"
+
+[golang]
+symbol = " "
+style = "bold sky"
+
+[python]
+symbol = " "
+style = "bold yellow"
+
+[docker_context]
+symbol = " "
+style = "bold blue"
+
+[kubernetes]
+disabled = false
+symbol = "☸ "
+style = "bold cyan"
+
+[kubernetes.context_aliases]
+"dev.*" = "dev"
+"prod.*" = "prod"
+
+[cmd_duration]
+min_time = 500
+format = "took [$duration](bold surface1) "
+
+[package]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true

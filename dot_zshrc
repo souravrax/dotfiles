@@ -1,0 +1,14 @@
+# ---------- Source all plugins ----------
+for plugin in ~/.zsh/plugins/*/*.plugin.zsh(N) ~/.zsh/plugins/*/*.zsh(N); do
+  source "$plugin"
+done
+
+# ---------- Source all configs ----------
+for config in ~/.zsh/config/*.zsh(N); do
+  source "$config"
+done
+
+# ---------- Source all options ----------
+for option in ~/.zsh/options/*.zsh(N); do
+  source "$option"
+done

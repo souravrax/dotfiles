@@ -1,0 +1,18 @@
+# ~/.zshenv — Environment variables and PATH
+# Sourced by ALL zsh instances (login, interactive, and scripts).
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# fnm
+FNM_PATH="$HOME/.local/share/fnm"
+[ -d "$FNM_PATH" ] && export PATH="$FNM_PATH:$PATH"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+# opencode
+[ -d "$HOME/.opencode/bin" ] && export PATH="$HOME/.opencode/bin:$PATH"
+
+# nvim
+[ -d "$HOME/apps/nvim/bin" ] && export PATH="$HOME/apps/nvim/bin:$PATH"
