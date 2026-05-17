@@ -26,9 +26,9 @@ Personal configuration files managed with [chezmoi](https://www.chezmoi.io/).
 
 2. **Initialize chezmoi with this repository**:
    ```bash
-   chezmoi init https://github.com/souravdey777/dotfiles.git
+   chezmoi init https://github.com/souravrax/dotfiles.git
    # or if using SSH:
-   chezmoi init git@github.com:souravdey777/dotfiles.git
+   chezmoi init git@github.com:souravrax/dotfiles.git
    ```
 
 3. **Review what will change** (optional but recommended):
