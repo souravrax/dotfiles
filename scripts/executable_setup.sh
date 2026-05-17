@@ -59,7 +59,7 @@ main() {
 
   install_packages "$os"
   install_binaries "$os" "$arch"
-  install_zsh_plugins
+  install_antidote
   set_default_shell
 
   echo ""

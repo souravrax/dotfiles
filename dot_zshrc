@@ -1,7 +1,6 @@
-# ---------- Source all plugins ----------
-for plugin in ~/.zsh/plugins/*/*.plugin.zsh(N) ~/.zsh/plugins/*/*.zsh(N); do
-  source "$plugin"
-done
+# ---------- Antidote plugin manager ----------
+source "${XDG_DATA_HOME:-$HOME/.local/share}/antidote/antidote.zsh"
+antidote load ~/.zsh_plugins.txt
 
 # ---------- Source all configs ----------
 for config in ~/.zsh/config/*.zsh(N); do

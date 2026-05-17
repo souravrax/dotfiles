@@ -229,24 +229,16 @@ install_zellij() {
   print_success "zellij v${version} installed"
 }
 
-install_zsh_plugins() {
-  print_step "Installing zsh plugins"
+install_antidote() {
+  local antidote_home="${XDG_DATA_HOME:-$HOME/.local/share}/antidote"
 
-  ensure_dir "$HOME/.zsh/plugins"
-
-  if [ ! -d "$HOME/.zsh/plugins/zsh-autosuggestions" ]; then
-    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions \
-      "$HOME/.zsh/plugins/zsh-autosuggestions"
-    print_success "zsh-autosuggestions installed"
-  else
-    print_skip "zsh-autosuggestions"
+  if [ -d "$antidote_home" ]; then
+    print_skip "antidote"
+    return
   fi
 
-  if [ ! -d "$HOME/.zsh/plugins/zsh-syntax-highlighting" ]; then
-    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git \
-      "$HOME/.zsh/plugins/zsh-syntax-highlighting"
-    print_success "zsh-syntax-highlighting installed"
-  else
-    print_skip "zsh-syntax-highlighting"
-  fi
+  print_step "Installing antidote"
+  ensure_dir "$(dirname "$antidote_home")"
+  git clone --depth=1 https://github.com/mattmc3/antidote.git "$antidote_home"
+  print_success "antidote installed"
 }
